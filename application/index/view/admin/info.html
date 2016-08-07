@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>球球大作战棒棒糖获取</title>
+        <link rel="stylesheet" href="/static/css/frozen.css">
+        <script src="/static/lib/zepto.min.js"></script>
+        <script src="/static/js/frozen.js"></script>
+    </head>
+    
+    <body ontouchstart>
+        <header class="ui-header ui-header-positive ui-border-b">
+            <h1>球球大作战棒棒糖获取</h1>
+        </header>
+        <section class="ui-container">
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:20px;margin-left:5px;">用户信息</p>
+            <ul class="ui-list ui-list-text ui-border-tb">
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">用户ID</h4>
+                    <div class="ui-txt-info">{$data.balls_id}</div>
+                </li>
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">昵称</h4>
+                    <div class="ui-txt-info" style="user-select: text;-webkit-user-select: text;">{$data.account}</div>
+                </li>
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">分享链接</h4>
+                    <div class="ui-txt-info" style="user-select: text;-webkit-user-select: text;">{$data.url}</div>
+                </li>
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">状态</h4>
+                    <div class="ui-txt-info">{$data.status_text}</div>
+                </li>
+            </ul>
+
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:20px;margin-left:5px;">服务期限</p>
+            <ul class="ui-list ui-list-text ui-border-tb">
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">到期时间</h4>
+                    <div class="ui-txt-info">{$data.time_out}</div>
+                </li>
+            </ul>
+            <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-list-active">
+                <li class="ui-border-t" data-href="{:url('index/index/index')}">
+                    <h4 class="ui-nowrap">添加账号</h4>
+                    <div class="ui-txt-info">现已免费</div>
+                </li>
+            </ul>
+
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:20px;margin-left:5px;">数据统计，这里的统计不一定和游戏里的数据统一。</p>
+            <ul class="ui-list ui-list-text ui-border-tb">
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">今日获取</h4>
+                    <div class="ui-list-action">{$today}</div>
+                </li>
+            </ul>
+
+            {lt name="$today" value="5"}
+            {neq name="$data.status" value="2"}
+            <ul class="ui-list ui-list-text ui-list-link ui-border-b ui-list-active">
+                <li class="ui-border-t" data-href="{:url('api/click/once',['id' => $data.balls_id])}">
+                    <h4 class="ui-nowrap">立即获取</h4>
+                    <div class="ui-txt-info">{php}echo 5 - $today;{/php}</div>
+                </li>
+            </ul>
+            {/neq}
+            {/lt}
+
+            <ul class="ui-list ui-list-text ui-border-tb" style="margin-top:20px;">
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">本周获取</h4>
+                    <div class="ui-list-action">{$week}</div>
+                </li>
+            </ul>
+            <ul class="ui-list ui-list-text ui-border-tb" style="margin-top:20px;">
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">本月获取</h4>
+                    <div class="ui-list-action">{$month}</div>
+                </li>
+            </ul>
+            <ul class="ui-list ui-list-text ui-border-tb" style="margin-top:20px;">
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">总计</h4>
+                    <div class="ui-list-action">{$sum}</div>
+                </li>
+            </ul>
+        </section><!-- /.ui-container-->
+        <script>
+        $('.ui-list li,.ui-tiled li').click(function(){
+            if($(this).data('href')){
+                location.href= $(this).data('href');
+            }
+        });
+        $('.ui-header .ui-btn').click(function(){
+            location.href= 'index.html';
+        });
+        </script>
+    </body>
+</html>

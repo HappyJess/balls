@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>代理IP列表</title>
+        <link rel="stylesheet" href="/static/css/frozen.css">
+        <script src="/static/lib/zepto.min.js"></script>
+        <script src="/static/js/frozen.js"></script>
+    </head>
+    
+    <body ontouchstart>
+        <header class="ui-header ui-header-positive ui-border-b">
+            <h1>代理IP列表</h1>
+        </header>
+        <section class="ui-container">
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:20px;margin-left:5px;">本页最多显示20条/总{$count}条</p>
+            <ul class="ui-list ui-list-text ui-border-tb" style="margin-bottom:10px;">
+                <li class="ui-border-t">
+                    <h4 class="ui-nowrap">IP</h4>
+                    <div class="ui-list-action">端口/响应</div>
+                </li>
+            </ul>
+            <ul class="ui-list ui-list-text ui-border-tb ui-list-link ui-list-active"">
+                {foreach name="data" item="v"}
+                <li class="ui-border-t" data-href="{:url('index/admin/ipInfo',['id' => $v.id])}">
+                    <h4 class="ui-nowrap" style="user-select: text;-webkit-user-select: text;">{$v.ip}</h4>
+                    <div class="ui-list-action">{$v.port}/{$v.connect_time}</div>
+                </li>
+                {/foreach}
+
+            </ul>
+
+        </section><!-- /.ui-container-->
+        <script>
+        $('.ui-list li,.ui-tiled li').click(function(){
+            if($(this).data('href')){
+                location.href= $(this).data('href');
+            }
+        });
+        $('.ui-header .ui-btn').click(function(){
+            location.href= 'index.html';
+        });
+        </script>
+    </body>
+</html>

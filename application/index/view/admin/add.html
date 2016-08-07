@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>球球大作战游戏刷棒棒糖</title>
+        <meta name="description" content="球球大作战游戏刷棒棒糖">
+        <meta name="keywords" content="球球大作战,棒棒糖,分享链接,免费点击,免费获取棒棒糖,球球大作战游戏,刷棒棒糖" />
+        <link rel="stylesheet" href="/static/css/frozen.css">
+        <script src="/static/lib/zepto.min.js"></script>
+        <script src="/static/js/frozen.js"></script>
+    </head>
+    
+    <body ontouchstart>
+        <header class="ui-header ui-header-positive ui-border-b">
+            <h1>欢迎使用</h1>
+        </header>
+        <section class="ui-container">
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:20px;margin-left:5px;">现有{$count_u}个用户已免费加入任务列队，每天将自动点击。</p>
+            <div class="ui-form ui-border-t">
+                <form action="{:url('api/user/add')}">
+                    
+                    <input name="token" type="hidden" placeholder="32位卡密" value="599dcce2998a6b40b1e38e8c6006cb0a" readonly>
+
+                    <div class="ui-form-item ui-border-b">
+                        <label>
+                            分享链接
+                        </label>
+                        <input name="url" type="text" placeholder="粘贴您的分享链接">
+                    </div>
+                    
+                    <div class="ui-form-item ui-form-item-l ui-border-b">
+                        <label class="ui-border-r">
+                            开通月数
+                        </label>
+                        <input name="time" type="number" placeholder="月" value="1">
+                    </div>
+
+                    <div class="ui-btn-wrap">
+                        <button class="ui-btn-lg ui-btn-primary">
+                            加入任务列队
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:10px;margin-left:5px;">服务说明：</p>
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:10px;margin-left:5px;">1. 本服务完全免费，供大家使用，不收取任何费用。</p>
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:10px;margin-left:5px;">2. 服务开通后，请保存您的专属面板地址，每天可以查看状态。</p>
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:10px;margin-left:5px;">3. 如果忘了面板地址，请再次在此提交你的分享链接，系统将自动转跳。</p>
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:10px;margin-left:5px;">4. 本系统采用代理IP访问方式，每次的IP都不一样，方便快捷安全，请放心使用。</p>
+            <p class="ui-txt-tips ui-txt-info" style="margin-bottom:5px;margin-top:10px;margin-left:5px;">5. 合作意向，请联系邮箱:<a href="#" style="user-select: text;-webkit-user-select: text;">hvner@vip.qq.com</a></p>
+        </section><!-- /.ui-container-->
+        <script>
+        $('.ui-list li,.ui-tiled li').click(function(){
+            if($(this).data('href')){
+                location.href= $(this).data('href');
+            }
+        });
+        $('.ui-header .ui-btn').click(function(){
+            location.href= 'index.html';
+        });
+        </script>
+    </body>
+</html>
