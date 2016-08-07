@@ -21,7 +21,7 @@ return [
     'mail_username' => '18227593863@163.com',//你的邮箱名
     'mail_from' 	=> '18227593863@163.com',//发件人地址
     'mail_fromname'	=> '球球大作战自动任务系统',//发件人姓名
-    'mail_password' => 'lZ126520',//邮箱密码
+    'mail_password' => '****',//邮箱密码
     'mail_charset'	=> 'utf-8',//设置邮件编码
     'mail_ishtml' 	=> TRUE, // 是否HTML格式邮件
 
